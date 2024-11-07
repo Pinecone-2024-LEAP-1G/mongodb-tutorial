@@ -5,9 +5,10 @@ const UserSchema = new Schema({
   firstName: { type: String },
   password: { type: String, min: 8 },
   phoneNumber: { type: String, min: 8 },
-  role: { type: String },
+  role: { type: String, enum: ["user", "admin"], default: "user" },
   createdAt: { type: Date, default: Date.now },
 });
 
 const UserModel = mongoose.model("User", UserSchema);
+
 export default UserModel;
